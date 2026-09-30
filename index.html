@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffc2da">
+<title>2 Months with You 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose-50:#fff0f6; --rose-200:#ffc2da; --rose-400:#ff6aa2; --rose-500:#ff2d78; --rose-700:#c2185b;
+  --ink:#4a1030; --glass:rgba(255,255,255,.62);
+  --script:'Dancing Script','Brush Script MT',cursive; --sans:Poppins,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{
+  min-height:100svh; display:grid; place-items:center; padding:24px 16px;
+  font:400 16px/1.6 var(--sans); color:var(--ink); overflow-x:hidden;
+  background:
+    radial-gradient(circle at 15% 10%,#ffe3ef 0,transparent 45%),
+    radial-gradient(circle at 90% 85%,#ffb3d1 0,transparent 50%),
+    linear-gradient(135deg,#ffd9ec,#ffc2da 55%,#ffe3ef) fixed;
+  padding-top:max(24px,env(safe-area-inset-top)); padding-bottom:max(24px,env(safe-area-inset-bottom));
+}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+main{position:relative;z-index:1;width:min(100%,520px)}
+[hidden]{display:none!important}
+
+.card{
+  padding:34px 26px; text-align:center; border-radius:30px;
+  background:var(--glass); border:1px solid rgba(255,255,255,.85);
+  -webkit-backdrop-filter:blur(18px); backdrop-filter:blur(18px);
+  box-shadow:0 24px 60px rgba(194,24,91,.22);
+  animation:pop .7s cubic-bezier(.2,.9,.3,1.2) both;
+}
+@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.96)}}
+
+h1,h2{font-family:var(--script);font-weight:700;line-height:1.1;color:var(--rose-700)}
+h1{font-size:clamp(2.6rem,11vw,3.6rem);margin:14px 0 8px}
+h2{font-size:clamp(1.8rem,7vw,2.3rem)}
+.sub{opacity:.8;margin-bottom:26px}
+.pill{display:inline-block;padding:6px 16px;border-radius:99px;background:#fff;color:var(--rose-700);font-weight:600;font-size:.85rem;box-shadow:0 6px 16px rgba(255,45,120,.18)}
+.beat{display:inline-block;animation:beat 1.3s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+.big-heart{font-size:4.2rem;display:block;filter:drop-shadow(0 8px 14px rgba(255,45,120,.35))}
+
+.btn{
+  border:0;cursor:pointer;font:600 1rem var(--sans);color:#fff;padding:14px 30px;border-radius:99px;
+  background:linear-gradient(135deg,var(--rose-400),var(--rose-500));
+  box-shadow:0 10px 24px rgba(255,45,120,.4); transition:transform .2s,box-shadow .2s;
+}
+.btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 14px 30px rgba(255,45,120,.5)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:#fff;color:var(--rose-700);box-shadow:0 8px 20px rgba(194,24,91,.15)}
+:focus-visible{outline:3px solid var(--rose-700);outline-offset:3px}
+
+/* quiz */
+.meta{display:flex;justify-content:space-between;font-size:.85rem;font-weight:500;margin-bottom:8px;color:var(--rose-700)}
+.track{height:8px;border-radius:9px;background:#fff;overflow:hidden}
+.track i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,#ff9ec4,var(--rose-500));transition:width .5s}
+#qText{margin:26px 0 18px;font-size:1.25rem;font-weight:600;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{
+  padding:14px 18px;border-radius:16px;border:2px solid transparent;background:#fff;color:var(--ink);
+  font:500 1rem var(--sans);text-align:left;cursor:pointer;transition:transform .2s,border-color .2s,background .3s;
+}
+.opt:hover:not(:disabled){border-color:var(--rose-400);transform:translateX(5px)}
+.opt:disabled{cursor:default}
+.opt.right{background:linear-gradient(135deg,var(--rose-400),var(--rose-500));color:#fff}
+.opt.wrong{background:#ffe1e6;color:#9b2c4a;animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+#fb{min-height:3.2em;margin:16px 0 8px;font-weight:500;color:var(--rose-700)}
+
+/* reveal */
+#lines{min-height:9rem;cursor:pointer}
+#lines p{font-family:var(--script);font-size:clamp(1.4rem,5.5vw,1.7rem);line-height:1.35;margin-bottom:10px}
+#lines p:last-child::after{content:'|';margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hint{font-size:.75rem;opacity:.6}
+.video{margin:22px 0 18px;border-radius:24px;overflow:hidden;border:5px solid #fff;box-shadow:0 18px 40px rgba(194,24,91,.35);animation:pop .8s both}
+video{display:block;width:100%;max-height:70svh;background:#2b0a1c}
+.video .err{padding:22px;font-size:.9rem;background:#fff}
+.actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px}
+footer{margin-top:20px;font-size:.8rem;text-align:center;opacity:.7}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<main>
+  <!-- 1. Intro -->
+  <section id="intro" class="card">
+    <span class="pill" id="days">2 months of us</span>
+    <span class="big-heart beat" aria-hidden="true">💗</span>
+    <h1>Hey, <span id="nick"></span></h1>
+    <p class="sub">I made something small for our 2 months.<br>First, a tiny quiz. No pressure. 😌</p>
+    <button class="btn" id="start">Start the quiz</button>
+  </section>
+
+  <!-- 2. Quiz -->
+  <section id="quiz" class="card" hidden>
+    <div class="meta"><span id="qCount"></span><span id="score"></span></div>
+    <div class="track"><i id="bar"></i></div>
+    <h2 id="qText" style="font-family:var(--sans);color:var(--ink)"></h2>
+    <div class="opts" id="opts"></div>
+    <p id="fb" aria-live="polite"></p>
+    <button class="btn" id="next" hidden>Next</button>
+  </section>
+
+  <!-- 3. Result -->
+  <section id="result" class="card" hidden>
+    <span class="big-heart beat" aria-hidden="true">🎁</span>
+    <h2 id="rTitle"></h2>
+    <p class="sub" id="rText" style="margin-top:8px"></p>
+    <button class="btn" id="open">Open your surprise</button>
+  </section>
+
+  <!-- 4. Reveal -->
+  <section id="reveal" class="card" hidden>
+    <div id="lines" aria-live="polite"></div>
+    <p class="hint" id="hint">tap the text to speed up</p>
+    <div class="video" id="videoWrap" hidden>
+      <video id="vid" controls playsinline preload="metadata"></video>
+      <p class="err" id="vErr" hidden>Video not found. Add your file as <b>video.mp4</b> next to index.html.</p>
+    </div>
+    <div id="final" hidden>
+      <h2 id="fTitle"></h2>
+      <p id="fText" style="margin-top:6px"></p>
+      <div class="actions">
+        <button class="btn" id="party">Celebrate 🎉</button>
+        <button class="btn ghost" id="replay">Play again</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>Made with <span class="beat">💗</span> Love Shiv</footer>
+</main>
+
+<script>
+(() => {
+  'use strict';
+
+  /* ============ EDIT ME: everything personal lives here ============ */
+  const CONFIG = {
+    name: 'Pranali',
+    nickname: 'Adva Jeery',
+    from: 'Shivam',
+    startDate: '2026-08-01',              // day you got together (YYYY-MM-DD)
+    video: { src: 'video.mp4', poster: '' }, // put your video in the same folder
+    quiz: [
+      { q: 'How long have we been together?',
+        options: ['1 month', '2 months', '6 months', 'Forever (I wish)'], answer: 1,
+        ok: 'Yes! Two beautiful months. 💗', no: 'It is 2 months! Do not worry, I will remind you. 😜' },
+      { q: 'What is my favourite thing in the whole world?',
+        options: ['Coding', 'Sleeping', 'You, Adva Jeery', 'Chai'], answer: 2,
+        ok: 'Correct. You beat coding, and that is a big deal. 😄', no: 'Wrong, but coding is only #2. It is you. 💕' },
+      { q: 'Who smiles more when we talk?',
+        options: ['Me', 'You', 'Both of us', 'The phone'], answer: 2,
+        ok: 'Both of us. Cheeks hurting, hearts full. 🥰', no: 'It is both of us, obviously. 🥰' },
+      { q: 'How many months do I want with you?',
+        options: ['2 more', '12 more', '100 more', 'All of them'], answer: 3,
+        ok: 'All of them. That is the plan. 💍✨', no: 'All of them. I am not stopping at 100. 😌' }
+    ],
+    lines: [
+      'Two months ago, my life quietly got better.',
+      'Since then, every ordinary day feels a little more special.',
+      'You smile, and my whole world compiles with zero errors. 😄',
+      'Thank you for being my peace, my happiness and my favourite person.',
+      'So here is something I made, just for you…'
+    ]
+  };
+  /* ================================================================== */
+
+  const $ = (s) => document.querySelector(s);
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Particle engine: floating hearts + confetti ---------- */
+  const fx = (() => {
+    const cv = $('#fx'), ctx = cv.getContext('2d');
+    const GLYPHS = ['💖', '💗', '💕', '🌸', '✨'];
+    const COLORS = ['#ff2d78', '#ff6aa2', '#ffc2da', '#fff', '#c2185b', '#ffd166'];
+    let W, H, D, parts = [];
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    const pick = (a) => a[(Math.random() * a.length) | 0];
+    const size = () => {
+      D = Math.min(devicePixelRatio || 1, 2);
+      W = cv.width = innerWidth * D; H = cv.height = innerHeight * D;
+    };
+    const add = (p) => parts.length < 220 && parts.push({ r: 0, vr: 0, gr: 0, d: 0, a: 1, ...p });
+
+    const tick = () => {
+      ctx.clearRect(0, 0, W, H);
+      for (let i = parts.length; i--;) {
+        const p = parts[i];
+        p.x += p.vx + (p.sway ? Math.sin(p.y / 70) * 0.5 * D : 0);
+        p.y += p.vy; p.vy += p.gr; p.r += p.vr; p.a -= p.d;
+        if (p.a <= 0 || p.y < -60 || p.y > H + 60) { parts.splice(i, 1); continue; }
+        ctx.save();
+        ctx.globalAlpha = Math.min(p.a, 1);
+        ctx.translate(p.x, p.y); ctx.rotate(p.r);
+        if (p.g) { ctx.font = `${p.s}px serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(p.g, 0, 0); }
+        else { ctx.fillStyle = p.c; ctx.fillRect(-p.s / 2, -p.s / 3, p.s, p.s * 0.6); }
+        ctx.restore();
+      }
+      requestAnimationFrame(tick);
+    };
+
+    size(); addEventListener('resize', size); tick();
+    if (!reduce) setInterval(() => {
+      if (!document.hidden) add({ g: pick(GLYPHS), x: rnd(0, W), y: H + 40, vx: 0, vy: -rnd(0.6, 1.5) * D, s: rnd(14, 30) * D, a: rnd(0.35, 0.8), sway: true });
+    }, 450);
+
+    return {
+      burst(x = innerWidth / 2, y = innerHeight / 2, n = 46) {
+        if (reduce) return;
+        for (let i = 0; i < n; i++) {
+          const ang = rnd(0, Math.PI * 2), sp = rnd(3, 9) * D;
+          add({ x: x * D, y: y * D, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp - 3 * D, gr: 0.18 * D,
+                vr: rnd(-0.2, 0.2), s: rnd(8, 16) * D, d: 0.012, ...(i % 3 ? { c: pick(COLORS) } : { g: pick(GLYPHS), s: rnd(18, 30) * D }) });
+        }
+      },
+      rain(n = 90) {
+        if (reduce) return;
+        for (let i = 0; i < n; i++) setTimeout(() => add({ x: rnd(0, W), y: -20, vx: rnd(-1, 1) * D, vy: rnd(2, 5) * D, gr: 0.02 * D,
+          vr: rnd(-0.15, 0.15), s: rnd(8, 14) * D, c: pick(COLORS), d: 0.002 }), i * 25);
+      }
+    };
+  })();
+
+  /* ---------- Screen router ---------- */
+  const SCREENS = ['intro', 'quiz', 'result', 'reveal'];
+  const show = (id) => { SCREENS.forEach((s) => { $('#' + s).hidden = s !== id; }); scrollTo({ top: 0 }); };
+
+  /* ---------- Intro ---------- */
+  $('#nick').textContent = CONFIG.nickname;
+  const days = Math.floor((Date.now() - new Date(CONFIG.startDate)) / 864e5);
+  if (Number.isFinite(days) && days >= 0) $('#days').textContent = `${days} days of us 💞`;
+  $('#start').onclick = () => { i = 0; score = 0; show('quiz'); renderQ(); };
+
+  /* ---------- Quiz ---------- */
+  let i = 0, score = 0, locked = false;
+  const total = CONFIG.quiz.length;
+
+  function renderQ() {
+    const q = CONFIG.quiz[i]; locked = false;
+    $('#qCount').textContent = `Question ${i + 1} of ${total}`;
+    $('#score').textContent = `💗 ${score}`;
+    $('#bar').style.width = `${(i / total) * 100}%`;
+    $('#qText').textContent = q.q;
+    $('#fb').textContent = '';
+    $('#next').hidden = true;
+    $('#next').textContent = i === total - 1 ? 'See my result 💌' : 'Next';
+    $('#opts').replaceChildren(...q.options.map((text, k) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'opt'; b.textContent = text;
+      b.onclick = () => answer(k, b);
+      return b;
+    }));
+  }
+
+  function answer(k, btn) {
+    if (locked) return; locked = true;
+    const q = CONFIG.quiz[i], good = k === q.answer, all = [...$('#opts').children];
+    all.forEach((b) => { b.disabled = true; });
+    all[q.answer].classList.add('right');
+    if (good) {
+      score++;
+      const r = btn.getBoundingClientRect();
+      fx.burst(r.left + r.width / 2, r.top + r.height / 2, 34);
+    } else btn.classList.add('wrong');
+    $('#score').textContent = `💗 ${score}`;
+    $('#fb').textContent = good ? q.ok : q.no;
+    $('#bar').style.width = `${((i + 1) / total) * 100}%`;
+    $('#next').hidden = false; $('#next').focus({ preventScroll: true });
+  }
+
+  $('#next').onclick = () => (++i < total ? renderQ() : finishQuiz());
+
+  function finishQuiz() {
+    const perfect = score === total;
+    $('#rTitle').textContent = `${score} / ${total} for ${CONFIG.nickname}`;
+    $('#rText').textContent = perfect
+      ? 'A perfect score. You know us better than my own code. 😌'
+      : 'You get full marks in my heart anyway. Your surprise is ready. 💗';
+    show('result'); fx.burst(innerWidth / 2, innerHeight / 3, 70);
+  }
+
+  /* ---------- Reveal: typed lines, then video ---------- */
+  let fast = false;
+  $('#lines').onclick = () => { fast = true; };
+
+  $('#open').onclick = async () => {
+    show('reveal'); fx.rain();
+    fast = false;
+    const box = $('#lines'), wait = (ms) => sleep(fast || reduce ? 0 : ms);
+    box.replaceChildren(); $('#hint').hidden = false;
+    $('#videoWrap').hidden = $('#final').hidden = true;
+
+    for (const line of CONFIG.lines) {
+      const p = document.createElement('p'); box.append(p);
+      for (const ch of line) { p.textContent += ch; await wait(32); }
+      await wait(550);
+    }
+    $('#hint').hidden = true;
+    box.querySelector('p:last-child')?.classList.add('done');
+
+    const v = $('#vid');
+    v.poster = CONFIG.video.poster || '';
+    v.onerror = () => { v.hidden = false; $('#vErr').hidden = false; };
+    v.src = CONFIG.video.src;
+    $('#videoWrap').hidden = false;
+
+    await sleep(reduce ? 0 : 500);
+    $('#fTitle').textContent = `Happy 2 months, ${CONFIG.nickname} 💗`;
+    $('#fText').textContent = `Forever yours, ${CONFIG.from}`;
+    $('#final').hidden = false; fx.burst(innerWidth / 2, innerHeight / 2, 80);
+  };
+
+  $('#party').onclick = () => { fx.burst(innerWidth * 0.25, innerHeight * 0.6, 50); fx.burst(innerWidth * 0.75, innerHeight * 0.6, 50); fx.rain(60); };
+  $('#replay').onclick = () => { $('#vid').pause(); show('intro'); };
+})();
+</script>
+</body>
+</html>
